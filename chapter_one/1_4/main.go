@@ -1,3 +1,6 @@
+// modifty the program so that the names of all the files are printed
+// where duplicated lines occur
+
 package main
 
 import (
@@ -19,7 +22,7 @@ func main() {
 		}
 
 		for _, line := range strings.Split(string(data), "\n") {
-			counts[line]++
+			counts[line+": "+filename]++
 		}
 	}
 
