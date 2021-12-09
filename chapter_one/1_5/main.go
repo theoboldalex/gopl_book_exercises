@@ -1,4 +1,5 @@
-// adjust the program's colour pallette to green on black
+// 1.5: adjust the program's colour pallette to green on black
+// 1.6: modify the program to produce images in multiple colors
 
 package main
 
@@ -12,11 +13,18 @@ import (
 	"os"
 )
 
-var pallette = []color.Color{color.Black, color.RGBA{0x00, 0xFF, 0x00, 0xFF}}
+var pallette = []color.Color{
+	color.Black,
+	color.RGBA{0x00, 0xFF, 0x00, 0xFF},
+	color.RGBA{0xFF, 0x00, 0x00, 0xFF},
+	color.RGBA{0x00, 0x00, 0xFF, 0xFF},
+}
 
 const (
-	whiteIndex = 0
-	blackIndex = 1
+	blackIndex = 0
+	greenIndex = 1
+	redIndex   = 2
+	blueIndex  = 3
 )
 
 func main() {
@@ -43,10 +51,11 @@ func lissajous(out io.Writer) {
 		for t := 0.0; t < cycles*2*math.Pi; t += res {
 			x := math.Sin(t)
 			y := math.Sin(t*freq + phase)
+			c := rand.Intn(len(pallette))
 
 			img.SetColorIndex(size+int(x*size+0.5),
 				size+int(y*size+0.5),
-				blackIndex)
+				uint8(c))
 		}
 
 		phase += 0.1
