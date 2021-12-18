@@ -1,3 +1,3 @@
-module kelvin
+module tempconv
 
 go 1.17
