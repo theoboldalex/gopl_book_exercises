@@ -16,6 +16,7 @@ var (
 
 func (c Celsius) String() string    { return fmt.Sprintf("%.2f°C", c) }
 func (f Fahrenheit) String() string { return fmt.Sprintf("%.2f°F", f) }
+func (k Kelvin) String() string     { return fmt.Sprintf("%.2fK", k) }
 
 // CToF converts a Celsius temperature to Fahrenheit.
 func CToF(c Celsius) Fahrenheit { return Fahrenheit(c*9/5 + 32) }
