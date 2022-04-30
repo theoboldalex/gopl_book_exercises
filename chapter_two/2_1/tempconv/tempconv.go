@@ -14,8 +14,8 @@ var (
 	BoilingC      Celsius = 100
 )
 
-func (c Celsius) String() string    { return fmt.Sprintf("%g°C", c) }
-func (f Fahrenheit) String() string { return fmt.Sprintf("%g°f", f) }
+func (c Celsius) String() string    { return fmt.Sprintf("%.2f°C", c) }
+func (f Fahrenheit) String() string { return fmt.Sprintf("%.2f°F", f) }
 
 // CToF converts a Celsius temperature to Fahrenheit.
 func CToF(c Celsius) Fahrenheit { return Fahrenheit(c*9/5 + 32) }
